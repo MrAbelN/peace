@@ -1,0 +1,19 @@
+!function(r,i){"use strict";var n,c="hljs-ln",u="hljs-ln-line",a="hljs-ln-n",h=/\r\n|\r|\n/g;function e(n){"interactive"===i.readyState||"complete"===i.readyState?t(n):r.addEventListener("DOMContentLoaded",function(){t(n)})}function t(n){try{var e,t=i.querySelectorAll("code.hljs,code.nohighlight");for(e in t)!t.hasOwnProperty(e)||t[e].classList.contains("nohljsln")||l(t[e],n)}catch(n){r.console.error("LineNumbers error: ",n)}}function l(n,e){"object"==typeof n&&r.setTimeout(function(){n.innerHTML=o(n,e)},0)}function o(n,e){var e={singleLine:function(n){return n.singleLine||!1}(e=(e=e)||{}),startFrom:function(n,e){var t=0;isFinite(e.startFrom)&&(t=e.startFrom);e=function(n,e){return n.hasAttribute(e)?n.getAttribute(e):null}(n,"data-ln-start-from");null!==e&&(t=function(n,e){return n&&(n=Number(n),isFinite(n))?n:e}(e,0));return t}(n,e)},n=n.innerHTML,t=function(n){return 0===n.length?[]:n.split(h)}(n);if(""===t[t.length-1].trim()&&t.pop(),1<t.length||e.singleLine){for(var r="",i=Math.trunc(Math.log10(t.length)),l=0,o=t.length;l<o;l++){var s="";t[l].includes("boring")&&(s="boring"),r+=`<div class="${u}"
+><div
+class="${a} ${s}"
+style="width: ${i}em;"
+></div>${0<t[l].length?t[l]:"&#13;"}</div>`}return`<div
+class="${c}"
+style="counter-reset: line-number-count ${e.startFrom}"
+>${r}</div>`}return n}r.hljs?(r.hljs.initLineNumbersOnLoad=e,r.hljs.lineNumbersBlock=l,r.hljs.lineNumbersValue=function(n,e){var t;if("string"==typeof n)return(t=document.createElement("code")).innerHTML=n,o(t,e)},(n=i.createElement("style")).type="text/css",n.innerHTML=`
+.${c} { display: block; }
+.${u}  { counter-increment: line-number-count; }
+.${a} {
+display: inline-block;
+text-align: right;
+margin-right: 2.0rem;
+}
+.${a}:before {
+content: counter(line-number-count);
+}
+`,i.getElementsByTagName("head")[0].appendChild(n),e()):r.console.error("highlight.js not detected!")}(window,document);
